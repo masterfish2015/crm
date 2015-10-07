@@ -5,6 +5,8 @@
 
 var express = require('express')
     , app = express()
+    , cookieParser = require('cookie-parser')
+    , session = require('express-session')
     ;
 
 var db = require('./data')();
@@ -13,6 +15,8 @@ var db = require('./data')();
 //db.checkUserLogin(0,'ldc','111');
 
 app.use(express.static('public'));
+app.use(cookieParser());
+app.use(session({secret:"ldc crm", saveUninitialized:true, resave:false}));
 
 //下面是路由，定义了web API
 
@@ -23,7 +27,7 @@ app.get('/', function (request, response) {
 
 //显示所有的用户信息，密码被设置为空白
 app.get('/users/list', function(request, response){
-    db.findUser({groupID:0}, function(doc){
+    db.findUser({}, function(doc){
         response.send(doc);
     },function(err){
         response.send(err);
@@ -32,7 +36,7 @@ app.get('/users/list', function(request, response){
 
 //登录，采用POST的方法，三个参数：groupID（集团id），name（用户名），password（密码）
 app.post('/login', function(request, response){
-    
+
 });
 
 var server = app.listen(4000, function () {
