@@ -1,0 +1,40 @@
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <div class="panel-title">
+            <h4>登录</h4>
+        </div>
+    </div>
+    <div class="panel-body" action="/login" method="post">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label class="control-label col-md-2" for="input_login_name">
+                    用户名：
+                </label>
+                <div class="col-md-6">
+                    <input type="text" id="input_login_name" class="form-control">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2" for="input_login_password">
+                    密码：
+                </label>
+                <div class="col-md-6">
+                    <input id="input_login_password"
+                           class="form-control"
+                           type="password" >
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-6 col-md-offset-2">
+                    <button class="btn btn-info">
+                        登录
+                    </button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+</div>
